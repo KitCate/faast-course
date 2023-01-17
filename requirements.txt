@@ -2,14 +2,12 @@ anyio==3.6.2
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 arrow==1.2.3
--e git+https://github.com/nosportugal/faast-foundations.git@b34a3288c7744b681c6abbc5b24b0f2337924691#egg=assignments&subdirectory=assignments
 astroid==2.13.2
 asttokens==2.2.1
 attrs==22.2.0
 backcall==0.2.0
 beautifulsoup4==4.11.1
 bleach==5.0.1
-certifi @ file:///croot/certifi_1671487769961/work/certifi
 cffi==1.15.1
 comm==0.1.2
 coverage==7.0.5
