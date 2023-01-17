@@ -53,6 +53,8 @@ def drop_missing_value(df_):
 
 def filter_region(df_, r):
     """Filter data by region"""
+    if r is None:
+        r = 'PT'
     return df_[df_.region==r].reset_index(drop=True)
 
 def select_columns(df_):
@@ -61,12 +63,11 @@ def select_columns(df_):
 
 def save_csv(df):
     """Save data to csv file"""
-
     filepath = '/nfs/backup/docker_mkt_empresas/cacofreitas/faast-course/life_expectancy/data/pt_life_expectancy.csv' # pylint: disable=line-too-long
     df.to_csv(filepath, index=False)
 
 
-def clean_data(r='PT'):
+def clean_data(r=None):
     """ Reads, processes and saves processed data to output file"""
 
     df = read_data()
