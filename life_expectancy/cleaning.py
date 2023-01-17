@@ -10,7 +10,7 @@ def parse_args():
 
 def read_data():
     """Reads input raw table data"""
-    filepath ='/nfs/backup/docker_mkt_empresas/cacofreitas/faast-foundations/assignments/life_expectancy/data/eu_life_expectancy_raw.tsv' # pylint: disable=line-too-long
+    filepath ='/nfs/backup/docker_mkt_empresas/cacofreitas/faast-course/life_expectancy/data/eu_life_expectancy_raw.tsv' # pylint: disable=line-too-long
     return pd.read_table(filepath, na_values=': ')
 
 def clean_id_column_name(df_):
@@ -62,7 +62,7 @@ def select_columns(df_):
 def save_csv(df):
     """Save data to csv file"""
 
-    filepath = '/nfs/backup/docker_mkt_empresas/cacofreitas/faast-foundations/assignments/life_expectancy/data/pt_life_expectancy.csv' # pylint: disable=line-too-long
+    filepath = '/nfs/backup/docker_mkt_empresas/cacofreitas/faast-course/life_expectancy/data/pt_life_expectancy.csv' # pylint: disable=line-too-long
     df.to_csv(filepath, index=False)
 
 
