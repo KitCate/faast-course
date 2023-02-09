@@ -1,8 +1,6 @@
 import argparse
-from pathlib import Path
 import pandas as pd
-
-DATA_DIR = Path(__file__).parent / "data"
+from config import DATA_DIR
 
 def parse_args():
     """Parse command line arguments"""
