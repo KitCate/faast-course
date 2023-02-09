@@ -30,6 +30,3 @@ disable = [
    "W0621"
    # Add any other checks you want to disable here
 ]
-
-[tool.pylint.MASTER]
-init-hook='import sys; sys.path.append("life_expectancy")'

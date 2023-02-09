@@ -1,6 +1,6 @@
 import argparse
 import pandas as pd
-from config import DATA_DIR
+from life_expectancy.config import DATA_DIR
 
 def parse_args():
     """Parse command line arguments"""
