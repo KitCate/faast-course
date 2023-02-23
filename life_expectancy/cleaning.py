@@ -9,7 +9,7 @@ def parse_args():
     args=parser.parse_args()
     return args
 
-def read_data():
+def load_data():
     """Reads input raw table data"""
     filepath = DATA_DIR / "eu_life_expectancy_raw.tsv"
     return pd.read_table(filepath, na_values=': ')
@@ -62,16 +62,16 @@ def select_columns(df_):
     """Select output columns"""
     return df_[['unit', 'sex', 'age', 'region', 'year', 'value']]
 
-def save_csv(df):
+def save_data(df):
     """Save data to csv file"""
     filepath = DATA_DIR / "pt_life_expectancy.csv"
     df.to_csv(filepath, index=False)
 
 
-def clean_data(r=None):
+def clean_data(df_, r=None):
     """ Reads, processes and saves processed data to output file"""
 
-    df = read_data()
+    df = df_.copy()
     df = clean_id_column_name(df)
     df = unpivot_data(df)
     df = explode_data_from_column(df, 'unit,sex,age,geo', split=',')
@@ -81,7 +81,6 @@ def clean_data(r=None):
     df = drop_missing_value(df)
     df = filter_region(df, r)
     df = select_columns(df)
-    save_csv(df)
 
     return df
 
@@ -89,4 +88,6 @@ def clean_data(r=None):
 if __name__ == "__main__":  # pragma: no cover
 
     args = parse_args()
-    df = clean_data(r=args.region)
+    df = load_data()
+    df = clean_data(df, r=args.region)
+    save_data(df)
